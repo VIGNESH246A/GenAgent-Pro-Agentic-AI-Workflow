@@ -5,11 +5,11 @@
 [![Gemini](https://img.shields.io/badge/Gemini-1.5-orange.svg)](https://ai.google.dev/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://genagent-pro-agentic-ai-workflow-hxjfvucfnkubzabfj32pnn.streamlit.app/)
-
 **GenAgent Pro** is an enterprise-grade, multi-agent AI system that autonomously plans, executes, validates, and completes real-world workflows end-to-end.
 
 Unlike simple chatbots, GenAgent Pro features true **agentic collaboration** with specialized agents that reason, plan, act, and learn from their actions.
+
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://genagent-pro-agentic-ai-workflow-hxjfvucfnkubzabfj32pnn.streamlit.app/)
 
 ---
 
