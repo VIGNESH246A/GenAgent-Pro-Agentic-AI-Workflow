@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  genagent-cli:
+    build: .
+    container_name: genagent-pro-cli
+    env_file: .env
+    volumes:
+      - ./data:/app/data
+    command: python main.py
+    stdin_open: true
+    tty: true
+  
+  genagent-ui:
+    build: .
+    container_name: genagent-pro-ui
+    env_file: .env
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./data:/app/data
+    command: streamlit run app.py --server.address 0.0.0.0
+    restart: unless-stopped
+
+volumes:
+  data:
+    driver: local

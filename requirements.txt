@@ -1,0 +1,38 @@
+# Core Framework
+langgraph
+langchain
+langchain-core
+langchain-community
+
+# Gemini LLM Provider 
+langchain-google-genai
+google-generativeai
+
+# Vector Store 
+faiss-cpu
+sentence-transformers
+
+# Document Processing
+PyPDF2
+python-docx
+pandas
+openpyxl
+
+# Utilities
+numpy
+requests
+python-dotenv
+pyyaml
+pydantic
+
+# Logging
+loguru
+
+# Web UI 
+streamlit
+
+# Safe Code Execution
+RestrictedPython
+
+# Testing
+pytest

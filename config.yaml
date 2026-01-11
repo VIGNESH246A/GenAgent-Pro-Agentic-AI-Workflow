@@ -1,0 +1,102 @@
+system:
+  name: "GenAgent Pro"
+  version: "1.0.0"
+  description: "Enterprise Agentic AI Workflow Engine"
+  mode: "lite"  # lite mode for rate-limited APIs
+
+llm:
+  provider: "gemini"
+  model: "gemini-2.5-flash"
+  temperature: 0.7
+  max_tokens: 8192
+  top_p: 0.95
+  top_k: 40
+
+agents:
+  planner:
+    temperature: 0.3
+    max_planning_steps: 5  # Reduced from 8
+    system_prompt: |
+      You are a strategic planner. Break down complex goals into MINIMAL executable tasks.
+      For simple calculator tasks, create 1-2 steps maximum.
+      Output ONLY valid JSON with this structure:
+      {
+        "tasks": [
+          {"id": "task_1", "description": "...", "agent": "executor", "dependencies": []}
+        ]
+      }
+    
+  executor:
+    temperature: 0.5
+    allow_tool_calling: true
+    max_tool_iterations: 3  # Reduced from 5
+    system_prompt: |
+      You are a precise executor. Use available tools efficiently.
+      Be concise. Execute the task directly without extra explanations.
+    
+  validator:
+    temperature: 0.2
+    validation_threshold: 0.7  # More lenient
+    skip_for_simple_tasks: true  # NEW: Skip validation for calculator-only tasks
+    system_prompt: |
+      You are a validator. For simple calculator tasks, be lenient.
+      Output JSON: {"valid": true/false, "score": 0.0-1.0, "feedback": "..."}
+    
+  memory:
+    short_term_window: 5  # Reduced from 10
+    long_term_enabled: true
+    system_prompt: |
+      You store context. Be brief.
+
+memory:
+  vector_store:
+    type: "faiss"
+    dimension: 384
+    similarity_threshold: 0.7
+    max_results: 3  # Reduced from 5
+    
+  conversation:
+    max_history: 30  # Reduced from 50
+    auto_summarize: false  # Disabled to save API calls
+
+tools:
+  file_reader:
+    enabled: true
+    formats: ["pdf", "txt", "csv", "docx", "xlsx"]
+    max_size_mb: 10
+    
+  python_executor:
+    enabled: true
+    timeout: 30
+    allowed_imports: 
+      - math
+      - statistics
+      - datetime
+      - json
+      - re
+    
+  calculator:
+    enabled: true
+    precision: 10
+    
+  memory_search:
+    enabled: true
+    max_results: 3  # Reduced from 5
+
+workflow:
+  max_iterations: 8  # Reduced from 10
+  retry_on_failure: true
+  max_retries: 2  # Reduced from 3
+  save_checkpoints: false  # Disabled to save API calls
+  
+  # NEW: Lite mode settings
+  lite_mode:
+    enabled: true
+    skip_validation_for_calculator: true  # Skip validator for calculator tasks
+    combine_simple_steps: true  # Combine multiple calculator steps into one
+    minimal_memory_updates: true  # Reduce memory API calls
+  
+logging:
+  level: "INFO"
+  format: "%(asctime)s | %(levelname)s | %(name)s | %(message)s"
+  file: "./data/logs/genagent.log"
