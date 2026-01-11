@@ -23,7 +23,14 @@ st.set_page_config(
 @st.cache_resource
 def initialize_app():
     """Initialize application (cached)"""
-    load_dotenv()
+    # Try to load from Streamlit secrets first, then .env
+    try:
+        api_key = st.secrets.get("GOOGLE_API_KEY") or os.getenv("GOOGLE_API_KEY")
+        if api_key:
+            os.environ["GOOGLE_API_KEY"] = api_key
+    except:
+        load_dotenv()
+    
     setup_logger("INFO")
     
     # Create directories
@@ -33,7 +40,7 @@ def initialize_app():
     
     # Check API key
     if not os.getenv("GOOGLE_API_KEY"):
-        return None, "GOOGLE_API_KEY not set in environment"
+        return None, "GOOGLE_API_KEY not set in environment or secrets"
     
     return True, "Initialized successfully"
 
