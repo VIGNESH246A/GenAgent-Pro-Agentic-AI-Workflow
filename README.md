@@ -325,8 +325,8 @@ MIT License - See [LICENSE](LICENSE) file for details
 ## 📧 Contact
 
 For questions or support:
-- GitHub Issues: [Create an issue](https://github.com/yourusername/genagent-pro/issues)
-- Email: your@email.com
+- LinkedIn: [Create an issue](https://www.linkedin.com/in/vignesh246v-ai-engineer/)
+- Email: vignesh246v@gmail.com
 
 ---
 
