@@ -1,8 +1,8 @@
 # 🤖 GenAgent Pro - Agentic AI Workflow Engine
 
-[![Python 3.12+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)
 [![LangGraph](https://img.shields.io/badge/LangGraph-0.2.16-green.svg)](https://github.com/langchain-ai/langgraph)
-[![Gemini](https://img.shields.io/badge/Gemini-1.5-orange.svg)](https://ai.google.dev/)
+[![Gemini](https://img.shields.io/badge/Gemini-2.5-orange.svg)](https://ai.google.dev/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 **GenAgent Pro** is an enterprise-grade, multi-agent AI system that autonomously plans, executes, validates, and completes real-world workflows end-to-end.
