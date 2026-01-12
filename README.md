@@ -1,6 +1,6 @@
 # 🤖 GenAgent Pro - Agentic AI Workflow Engine
 
-[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![Python 3.12+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![LangGraph](https://img.shields.io/badge/LangGraph-0.2.16-green.svg)](https://github.com/langchain-ai/langgraph)
 [![Gemini](https://img.shields.io/badge/Gemini-1.5-orange.svg)](https://ai.google.dev/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
